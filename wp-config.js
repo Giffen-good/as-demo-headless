@@ -4,7 +4,7 @@ const Config = {
   appDescription: 'Demo for the AS dev team',
   appThemeColor: '#001e45',
   appBgColor: '#001e45',
-  wpDomain: 'http://20.151.161.178',
+  wpDomain: 'https://as-demo.rock-media.ca',
   loadDbName: 'as_demo',
   api: {
     getFrontPage: '/wp-json/wp/v2/pages/28?acf_format=standard',
