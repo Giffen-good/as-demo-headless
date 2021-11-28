@@ -19,21 +19,36 @@
           v-if="callouts.length"
           class="flex justify-center items-center pt-7 flex-wrap sm:flex-nowrap"
         >
-          <h3 class="text-4xl w-full sm:w-auto">
-            <NuxtLink :to="callouts[0].callout_url">{{
+          <h3
+            v-if="
+              Object.prototype.hasOwnProperty.call(callouts[0], 'callout_label')
+            "
+            class="text-4xl w-full sm:w-auto"
+          >
+            <NuxtLink :to="getPath(callouts[0].callout_url)">{{
               callouts[0].callout_label
             }}</NuxtLink>
           </h3>
           <div class="separator mx-5 w-3px hidden sm:block"></div>
-          <h3 class="text-4xl w-full sm:w-auto">
-            <NuxtLink :to="callouts[1].callout_url">{{
-              callouts[0].callout_label
+          <h3
+            v-if="
+              Object.prototype.hasOwnProperty.call(callouts[1], 'callout_label')
+            "
+            class="text-4xl w-full sm:w-auto"
+          >
+            <NuxtLink :to="getPath(callouts[1].callout_url)">{{
+              callouts[1].callout_label
             }}</NuxtLink>
           </h3>
           <div class="separator mx-5 w-3px hidden sm:block"></div>
-          <h3 class="text-4xl w-full sm:w-auto">
-            <NuxtLink :to="callouts[2].callout_url">{{
-              callouts[0].callout_label
+          <h3
+            v-if="
+              Object.prototype.hasOwnProperty.call(callouts[2], 'callout_label')
+            "
+            class="text-4xl w-full sm:w-auto"
+          >
+            <NuxtLink :to="getPath(callouts[2].callout_url)">{{
+              callouts[2].callout_label
             }}</NuxtLink>
           </h3>
         </hgroup>
@@ -42,6 +57,8 @@
   </section>
 </template>
 <script>
+import util from '@/util'
+
 export default {
   name: 'AcfHero',
   props: {
@@ -62,6 +79,11 @@ export default {
     this.heading = hero_heading
     this.callouts = hero_callouts
     this.image = hero_image
+  },
+  methods: {
+    getPath(url) {
+      return util.getPathname(url)
+    },
   },
 }
 </script>

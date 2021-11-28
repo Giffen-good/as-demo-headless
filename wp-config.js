@@ -8,6 +8,7 @@ const Config = {
   loadDbName: 'as_demo',
   api: {
     getFrontPage: '/wp-json/wp/v2/pages/28?acf_format=standard',
+    getPost: '/wp-json/wp/v2/posts',
     getCustomPosts: '/wp-json/wp/v2/insights?_embed',
     getPages: '/wp-json/wp/v2/pages?acf_format=standard',
     getHeaderNavigation: '/wp-json/header/menu',

@@ -10,7 +10,6 @@ function wpThemeOptsToTailwindThemeOpts(theme) {
       colors[p[i].slug] = p[i].color
     }
   }
-  console.log(colors)
   return { colors }
 }
 const { colors } = wpThemeOptsToTailwindThemeOpts(wpThemeOptions)

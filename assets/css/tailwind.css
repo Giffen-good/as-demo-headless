@@ -93,9 +93,12 @@ footer .site-branding:first-child a,
 footer .site-branding:first-child svg {
   width: 207px;
 }
+.wp__title {
+  @apply pt-5 text-center text-3xl;
+}
+footer .site-branding polygon,
 footer .site-branding svg,
-footer .site-branding path,
-footer .site-branding polygon {
+footer .site-branding path {
   fill: white;
 }
 .giant-logo {

@@ -20,9 +20,10 @@
       <h4 class="text-2xl text-dark-blue leading-snug py-1 font-medium">
         {{ data.title.rendered }}
       </h4>
-      <h5 class="line-clamp-3 text-dark-grey">
-        {{ stripHTML(data.excerpt.rendered) }}
-      </h5>
+      <h5
+        class="line-clamp-3 text-dark-grey"
+        v-html="data.excerpt.rendered"
+      ></h5>
       <div class="line-flare short-flare vertical-flare absolute"></div>
     </hgroup>
   </NuxtLink>
@@ -42,9 +43,6 @@ export default {
   methods: {
     getPath(url) {
       return util.getPathname(url)
-    },
-    stripHTML(html) {
-      return util.stripHTML(html)
     },
   },
 }

@@ -8,7 +8,6 @@ export default {
     return titleChunk ? `${titleChunk} - Nuxt Headless` : 'Nuxt Headless'
   },
   generate: {
-    fallback: '404.html',
     routes: dynamicRoutes,
   },
   // Target: https://go.nuxtjs.dev/config-target
@@ -46,7 +45,8 @@ export default {
       {
         hid: 'image',
         name: 'image',
-        content: 'https://nuxt-headless.netlify.com/images/seo.png',
+        content:
+          'https://as-demo.rock-media.ca/wp-content/uploads/2021/11/hero-1024x576.png',
       },
       { hid: 'name', itemprop: 'name', content: 'Nuxt Headless' },
       {
@@ -57,7 +57,8 @@ export default {
       {
         hid: 'image',
         itemprop: 'image',
-        content: 'https://nuxt-headless.netlify.com/images/seo.png',
+        content:
+          'https://as-demo.rock-media.ca/wp-content/uploads/2021/11/hero-1024x576.png',
       },
       {
         hid: 'twitter:card',
@@ -83,7 +84,8 @@ export default {
       {
         hid: 'twitter:image',
         name: 'twitter:image',
-        content: 'https://nuxt-headless.netlify.com/images/seo.png',
+        content:
+          'https://as-demo.rock-media.ca/wp-content/uploads/2021/11/hero-1024x576.png',
       },
       {
         hid: 'twitter:image:alt',
@@ -111,12 +113,14 @@ export default {
       {
         hid: 'og:image',
         property: 'og:image',
-        content: 'https://nuxt-headless.netlify.com/images/seo.png',
+        content:
+          'https://as-demo.rock-media.ca/wp-content/uploads/2021/11/hero-1024x576.png',
       },
       {
         hid: 'og:image:url',
         property: 'og:image:url',
-        content: 'https://nuxt-headless.netlify.com/images/seo.png',
+        content:
+          'https://as-demo.rock-media.ca/wp-content/uploads/2021/11/hero-1024x576.png',
       },
       {
         hid: 'og:image:width',
@@ -160,6 +164,7 @@ export default {
   purgeCSS: {
     mode: 'postcss',
     enabled: process.env.NODE_ENV === 'production',
+    paths: ['./src/**/*.html', './src/**/*.vue', './src/**/*.jsx', '**/*.svg'],
   },
   webfontloader: {
     google: {

@@ -1,13 +1,8 @@
 const util = {}
 
-util.getLocation = (href) => {
-  const l = document.createElement('a')
-  l.href = href
-  return l
-}
-
 util.getPathname = (url) => {
-  return util.getLocation(url).pathname
+  const u = new URL(url)
+  return u.pathname
 }
 util.stripHTML = (html) => {
   const div = document.createElement('div')

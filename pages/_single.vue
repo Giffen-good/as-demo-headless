@@ -1,25 +1,55 @@
 <template>
-  <Page v-if="single.type === 'page'" :page="single" />
-  <Post v-else :post="single" />
+  <SinglePage
+    v-if="
+      pageData &&
+      Object.prototype.hasOwnProperty.call(pageData, 'type') &&
+      pageData.type === 'page'
+    "
+    :page="pageData"
+  />
+  <PostPage
+    v-else-if="
+      pageData &&
+      Object.prototype.hasOwnProperty.call(pageData, 'type') &&
+      pageData.type === 'post'
+    "
+    :post="pageData"
+  />
+  <Four04Page v-else-if="completed" />
+  <main v-else class="site-main flex-1 z-10 items-center justify-center flex">
+    <Loader />
+  </main>
 </template>
 
 <script>
-import Page from '@/components/templates/Page.vue'
-import Post from '@/components/templates/Post.vue'
-
+import init from '@/composables/init'
+import getPageData from '@/composables/api/getPageData'
+import wpConfig from '@/wp-config'
 export default {
-  components: {
-    Page,
-    Post,
+  setup() {
+    const store = useStore()
+    init(store)
   },
-  computed: {
-    single() {
-      return this.$store.state.pages.page
-    },
+  async asyncData({ app, params }) {
+    let pageData
+
+    if (Object.prototype.hasOwnProperty.call(params, 'single')) {
+      const p = { slug: params.single }
+      pageData = await getPageData(p)
+
+      // If response is undefined, single page may be post page
+      if (typeof pageData === 'undefined') {
+        const p = { slug: params.single, _embed: true }
+        pageData = await getPageData(p, wpConfig.api.getPost)
+      }
+    }
+    app.completed = true
+    return { pageData }
   },
-  created() {
-    const slug = this.$route.params.single
-    this.$store.dispatch('pages/getSinglePageData', slug)
+  data() {
+    return {
+      completed: false,
+    }
   },
 }
 </script>
