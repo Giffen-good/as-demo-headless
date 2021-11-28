@@ -21,7 +21,7 @@
     </nav>
     <div
       id="main-nav"
-      class="flex justify-between items-baseline mt-1 sm:items-center"
+      class="flex justify-between items-baseline mt-1 md:items-center"
     >
       <div class="site-branding">
         <h1 class="site-title">
