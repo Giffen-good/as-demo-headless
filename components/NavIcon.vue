@@ -1,5 +1,5 @@
 <template>
-  <div class="md:hidden flex items-center justify-end">
+  <div class="md:hidden flex items-center justify-end nav-icon-wrapper">
     <div id="nav-icon3" :class="`${openNav ? 'open' : ''}`" @click="toggleNav">
       <span></span>
       <span></span>
