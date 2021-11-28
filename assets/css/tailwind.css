@@ -88,6 +88,18 @@ nav .separator {
   left: 108%;
 }
 
+/* HEADER - MOBILE */
+/*
+.open-nav #site-navigation {
+  position: fixed;
+  display: block;
+  height: calc(100vh - 55px);
+  background-color: #fff;
+  top: 55px;
+  width: 100%;
+  left: 0;
+} */
+
 /* footer */
 footer .site-branding:first-child a,
 footer .site-branding:first-child svg {

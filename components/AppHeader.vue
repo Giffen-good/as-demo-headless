@@ -6,7 +6,9 @@
   >
     <nav
       id="topbar"
-      class="flex justify-end text-xs pt-1.5 items-center hidden md:flex"
+      :class="`flex justify-end text-xs pt-1.5 items-center hidden md:flex ${
+        openNav ? 'open-nav' : ''
+      }`"
     >
       <NuxtLink to="#" class="flex items-center search-icon">
         <span><SearchIcon /></span>
@@ -17,7 +19,10 @@
       <div class="separator"></div>
       <NuxtLink to="#" class="pl-2.5">Covid-19 Info</NuxtLink>
     </nav>
-    <div id="main-nav" class="flex justify-between items-baseline mt-1">
+    <div
+      id="main-nav"
+      class="flex justify-between items-baseline mt-1 sm:items-center"
+    >
       <div class="site-branding">
         <h1 class="site-title">
           <NuxtLink to="/"><SiteLogo /></NuxtLink>
@@ -44,6 +49,7 @@
           </li>
         </ul>
       </nav>
+      <NavIcon />
     </div>
   </header>
 </template>
@@ -64,6 +70,11 @@ export default {
     return {
       nav: [],
     }
+  },
+  computed: {
+    openNav() {
+      return this.$store.state.openNav
+    },
   },
   async created() {
     const navData = await axios

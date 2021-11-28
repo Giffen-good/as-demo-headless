@@ -63,7 +63,6 @@ export default {
     },
   },
   created() {
-    const fullConfig = resolveConfig(tailwindConfig)
     this.fallbackStrokeColor =
       resolveConfig(tailwindConfig).theme.backgroundColor['dark-blue'] || '#fff'
   },

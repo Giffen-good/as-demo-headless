@@ -3,8 +3,11 @@
 </template>
 
 <script>
+import resolveConfig from 'tailwindcss/resolveConfig'
 import init from '@/composables/init'
 import getPageData from '@/composables/api/getPageData'
+
+import tailwindConfig from '@/tailwind.config.js'
 
 export default {
   setup() {

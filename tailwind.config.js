@@ -10,6 +10,7 @@ function wpThemeOptsToTailwindThemeOpts(theme) {
       colors[p[i].slug] = p[i].color
     }
   }
+
   return { colors }
 }
 const { colors } = wpThemeOptsToTailwindThemeOpts(wpThemeOptions)
@@ -64,6 +65,10 @@ module.exports = {
     require('@tailwindcss/typography'),
     require('@tailwindcss/aspect-ratio'),
     require('@tailwindcss/line-clamp'),
-    // ...
+
+    require('./plugins/tailwindNavHamburger')({
+      width: 25,
+      thickness: 2,
+    }),
   ],
 }

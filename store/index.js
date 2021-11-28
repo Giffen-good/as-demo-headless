@@ -9,16 +9,23 @@ const createStore = () => {
         description: '',
         name: '',
       },
+      openNav: false,
     },
     mutations: {
       SET_META(state, data) {
         state.meta = data
+      },
+      TOGGLE_NAV(state) {
+        state.openNav = !state.openNav
       },
     },
     actions: {
       async nuxtServerInit({ commit }) {
         const meta = await axios.get(`${wpConfig.wpDomain}/wp-json`)
         commit('SET_META', meta.data)
+      },
+      toggleNav({ commit }) {
+        commit('TOGGLE_NAV')
       },
     },
   })
